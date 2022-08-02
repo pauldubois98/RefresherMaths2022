@@ -1,7 +1,48 @@
 \section{Elementary Maths}
+
+\subsection{Mathematical Objects \& Notations}
+\subparagraph{Sets}
+\begin{definition}[Sets]
+    Unordered list of elements.
+\end{definition}
+\begin{notation}[Sets]
+    $\in$, $\{ \text{True}, \text{False} \}$, $\{ a \mid condition \}$, $\{ a, b, c \dots \}$, $\emptyset$
+\end{notation}
+
+\begin{remark}[Russell Paradox]
+    \textit{(digression)}\\
+    Need to be careful when defining set: some definitions are pathological.
+    
+    e.g.: Take $Y = \{x \mid x \not\in x\}$:
+    $Y \in Y \iff Y \not\in Y$
+\end{remark}
+\begin{notation}[Usual Sets]
+    $\B$, $\N$, $\Z$, $\Q$, $\R$, $\C$, $\N^*$, $\R^+$...
+\end{notation}
+
+\subparagraph{Functions}
+\begin{definition}[Functions]
+    Assignment from a set to another.
+\end{definition}
+\begin{notation}[Function]
+    $f: X \to Y$, $f(x)=blah$, $f: x \mapsto blah$.
+\end{notation}
+\begin{question}
+    Which ones of these function are well-defined ?
+    \begin{itemize}
+        \item $f:k\in\{0,1,2,3,4\}\mapsto 24/k\in \N$
+        \item $f:k\in \{1,2,3,4\}\mapsto 24/k\in \N$
+        \item $f:k\in \{1,2,3,4,5\}\mapsto 24/k\in \N$
+        \item $f:k\in \{1,2,3,4\}\mapsto k\in \{1,2\}$
+        \item $f:k\in \{1,2,3,4\}\mapsto k\in \{1,2,3,4,5\}$
+    \end{itemize}
+\end{question}
+
+
+
+
 \subsection{Objects \& Notations}
-- set notation
-- function notations
+
 - $\N$, $\Z$, $\Q$, $\R$
 - scalars vs vectors
 - logic \& booleans
