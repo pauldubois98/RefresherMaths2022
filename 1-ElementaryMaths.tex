@@ -272,11 +272,86 @@ Here $ \star $ and $ \dagger $ will operations.
 
 
 \subsection{Proofs}
-Example of proofs and non-proofs
-- direct
-- splitting cases
-- induction
-- contradiction
+Proofs play a major role in mathematics.
+Except axioms, every statement needs a proof to be valid.
+There are a 4 common approaches to prove a statement:
+\paragraph{Direct proof}
+This techniques consists of just going straight in and aiming at the statement you want.
+\begin{property}[Archimedian Property]
+    For any real number, there exists an integer even greater.\\
+    That is $\forall x \in \R, \exists n \in \N \text{ s.t. } x<n$.
+\end{property}
+\begin{proof}
+    Let $n = \floor{x}+1$: then $x-1<\floor{x}$ so $x<\floor{x}=n$.
+\end{proof}
+\paragraph{Splitting cases}
+This techniques consists splitting the statement to prove in several easier ones.
+\begin{property}
+    For any $n \in \Z$, $n$ and $n^2$ share the same parity.
+\end{property}
+\begin{proof} We split into 2 cases: $n$ even and $n$ odd:
+    \begin{itemize}
+        \item Suppose $n$ is even: $n=2k$ so $n^2=4k^2=2(2k^2)$, i.e. $n^2$ is even.
+        \item Suppose $n$ is odd: $n=2k+1$ so $n^2=4k^2+4k+1=2(2k^2+2k)+1$, i.e. $n^2$ is odd.
+    \end{itemize}
+\end{proof}
+\paragraph{Contradiction}
+This techniques consists in assuming the opposite of what you want, deriving a contradiction (both $P$ and $\lnot P$), then conclude the opposite of what was assumed.
+\begin{property}
+    $\sqrt{2} \not\in \Q$
+\end{property}
+\begin{proof}
+    Suppose $\sqrt{2} \in \Q$: then there are $a,b \in \N$ such that $\sqrt{2} = \nicefrac{a}{b}$.
+    Moreover, we can take $a$ and $b$ so that they have no common divisors.
+    Now, we have $2b^2 = a^2$. So $a^2$ is even, so $a$ is even, let $a = 2a'$.
+    Then, $2b^2 = 4a'^2$ so $b^2 = 2a'^2$. Thus, $b^2$ is even, so $b$ is even.
+    Both $a$ and $b$ are divisible by $2$, which contradicts them having no common divisors.
+    Finally, we conclude our initial assumption was wrong, so $\sqrt{2} \not\in \Q$.
+\end{proof}
+\paragraph{Induction}
+This techniques is only applicable if we wish to prove a statement for all natural numbers.
+The idea is similar to domino: each statement will imply the next one.
+Mathematically, if $P(n)$ are statements ($n \in \N$), we give 2 proofs:
+First, that $P(0)$ is true.
+Then, that $P(n) \implies P(n+1)$.
+\begin{property}
+    $\forall n \in \N, \ \sum_{k=0}^{n} k = \frac{n(n+1)}{2}$
+\end{property}
+\begin{proof}
+    \textbf{Initialization:} for $n=0$:\\
+    $$\sum_{k=0}^{0} k = 0 \text{ and } \frac{0(0+1)}{2}=0$$
+    so clearly $$\sum_{k=0}^{n} k = \frac{n(n+1)}{2} \text{ for } n=0$$
+    
+    \textbf{Induction:} suppose $\sum_{k=0}^{n} k = \frac{n(n+1)}{2}$, we need $\sum_{k=0}^{n+1} k = \frac{(n+1)(n+2)}{2}$\\
+    \begin{equation*}
+        \begin{split}
+            \sum_{k=0}^{n+1} k &= (n+1) + \sum_{k=0}^{n} k\\
+                               &= (n+1) + \frac{n(n+1)}{2}\\
+                               &= \frac{(n+2)(n+1)}{2}
+        \end{split}
+    \end{equation*}
+\end{proof}
+Be careful, BOTH initialization \& induction are important.
+
+A misleading "proof":
+\begin{property}[FALSE PROPERTY]
+    Horses are all the same colour.
+\end{property}
+\begin{proof}[FALSE PROOF]
+    We will prove by induction that any set of $n$ horses must be a set of horses all being the same colour.
+    
+    \textbf{Initialization:} for set of 1 horse, clearly, it's true.
+    
+    \textbf{Induction:} suppose all sets of $n$ horses are uni-colour; we need sets of $n+1$ horses to be uni-colour.
+    
+    Take $H=\{ h_1, h_2, \dots, h_n, h_{n+1} \}$ a set of $n+1$ horses.
+    Then let $H_1 = \{ h_1, \dots, h_n, \}$ and $H_2 = \{ h_2, \dots, h_{n+1} \}$.
+    By induction, $H_1$ and $H_2$ must be uni-colour.
+    $h_n$ belongs to both sets, so the colour of horses in both sets mus be the same, and $H$ is uni-colour.
+\end{proof}
+
+
+
 \subsection{Geometry}
 - equations of lines/planes, etc... => vectors / scalar \& equation manipulations
 \subsection{Sets}
