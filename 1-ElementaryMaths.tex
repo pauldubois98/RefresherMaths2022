@@ -109,15 +109,118 @@ Here $ \star $ and $ \dagger $ will operations.
 \end{question}
 
 
+\subsection{Boolean algebra}
+\textit{The reason we'll do some is because of it's application to programming, in particular to conditions ('if' blocks and 'while' loops).}
+\subparagraph{Basic operators}
+\begin{definition}[Conjunction]
+    $x \land y = xy$
+\end{definition}
+\begin{definition}[Intersection]
+    $X \cap Y = \{ z \mid (z \in X) \land (z \in Y) \}$
+\end{definition}
+\begin{remark}[Disjoint Sets and Intersection]
+    Disjoint sets have empty intersection.
+\end{remark}
+\begin{definition}[Disjunction]
+    $x \lor y = \min(x+y,1)$
+\end{definition}
+\begin{definition}[Union]
+    $X \cup Y = \{ z \mid (z \in X) \lor (z \in Y) \}$
+\end{definition}
+\begin{definition}[Negation]
+    $\lnot: 0,1 \mapsto 1,0$
+\end{definition}
+\begin{definition}[Set minus / Complement]
+    $X \setminus Y = \{ x \in X \mid \lnot (x \in Y) \}$
+\end{definition}
+[Draw diagrams]
+\begin{question}
+    Selecting points outside a given region.
+\end{question}
+\subparagraph{Basic properties}
+\begin{property}[Boolean algebra matching ordinary algebra]
+    Same laws as ordinary algebra when one matches up $\lor$ with addition and $\land$ with multiplication.
+    \begin{itemize}
+        \item Associativity of $\lor$: $x \lor (y \lor z) = (x \lor y) \lor z$
+        \item Associativity of $\land$: $x \land (y \land z) = (x \land y) \land z$
+        \item Commutativity of $\lor$: $x \lor y  = y \lor x$
+        \item Commutativity of $\land$: $x \land y  = y \land x$
+        \item Distributivity of $\land$ over $\lor$:  $x \land (y \lor z) = (x \land y) \lor (x \land z)$
+        \item $0$ is identity for $\lor$: $x \lor 0  = x$
+        \item $1$ is identity for $\land$: $x \land 1  = x$
+        \item $0$ is annihilator for $\land$: $x \land 0  = 0$
+    \end{itemize}
+\end{property}
+\begin{property}[Boolean algebra specific properties]
+    The following laws hold in Boolean algebra, but not in ordinary algebra: 
+    \begin{itemize}
+        \item Idempotence of $\lor$: $x \lor x = x$
+        \item Idempotence of $\land$: $x \land x = x$
+        \item Absorption of $\lor$ over $\land$: $x \lor (x \land y)  = x \land y$
+        \item Absorption of $\land$ over $\lor$: $x \land (x \lor y)  = x \lor y$
+        \item Distributivity of $\lor$ over $\land$:  $x \lor (y \land z) = (x \lor y) \land (x \lor z)$
+        \item $1$ is annihilator for $\lor$: $x \lor 1 = 1$
+    \end{itemize}
+\end{property}
+\begin{property}[De Morgan Laws]
+    $\lnot (x \land y) = \lnot x \lor \lnot y$
+    and
+    $\lnot (x \lor y) = \lnot x \land \lnot y$
+\end{property}
+\begin{proof}
+    Truth-tables; prove De Morgan, others as exercise (or just believe me)
+\end{proof}
 
+\subparagraph{Other operators}
+\begin{definition}[Exclusive Or]
+    $x \oplus y$
+\end{definition}
+\begin{definition}[Implication]
+    $x \implies y$
+\end{definition}
+\begin{property}[Implication and Inclusion]
+    If $\forall x \in X, P_1(x) \implies P_2(x)$, then $\{ x \in X \mid P_1(x) \} \subset \{ x \in X \mid P_2(x) \}$.
+\end{property}
+\begin{proof}
+    Trivial.
+\end{proof}
+\begin{definition}[If and only if]
+    $x \iff y$
+\end{definition}
+\begin{question}
+    Express in terms of and, or, not:
+    \begin{itemize}
+        \item $\oplus$
+        \item $\implies$
+        \item $\impliedby$
+        \item $\iff$
+    \end{itemize}
+    Write 1st and 2nd digit of addition of 3 binary numbers $a$, $b$, $c$.
+\end{question}
+
+\subparagraph{Negation of quantified propositions}
+\begin{property}[Negation of $\forall$]
+    $\mathrm{not}(\forall x\in X, P(x)) = \exists x\in X, \mathrm{not}(P(x))$
+\end{property}
+\begin{property}[Negation of $\exists$]
+    $\mathrm{not}(\exists x\in X, P(x)) = \forall x\in X, \mathrm{not}(P(x))$
+\end{property}
+\begin{notation}[Quantifiers and the empty set]
+    $\forall x \in \emptyset, \ \dots$ is true ;
+    $\exists x \in \emptyset, \ \dots$ is false
+\end{notation}
+\begin{question} Negate the following
+    \begin{itemize}
+        \item $\forall x \in \R, \ \exists n \in \N \text{ s.t. } n > x$
+        \item ($x_n \to x$): $\forall \epsilon>0, \exists N \in \N \text{ s.t. } \forall n>N, \abs{x_n-x}<\epsilon$
+    \end{itemize}
+\end{question}
 
 
 
 \subsection{Objects \& Notations}
-
 - $\N$, $\Z$, $\Q$, $\R$
 - scalars vs vectors
-- logic \& booleans
 \subsection{Proofs}
 Example of proofs and non-proofs
 - direct
