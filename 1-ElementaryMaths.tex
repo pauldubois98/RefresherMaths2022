@@ -7,9 +7,8 @@ I will go fast as I assume you have already seen this before.
     Unordered list of elements.
 \end{definition}
 \begin{notation}[Sets]
-    $\in$, $\{ \text{True}, \text{False} \}$, $\{ a \mid condition \}$, $\{ a, b, c \dots \}$, $\emptyset$
+    $a \in A$, $\{ a, b, c \dots \}$, $\{ e \mid condition \}$, $\emptyset$
 \end{notation}
-
 \begin{remark}[Russell Paradox]
     \textit{(digression)}\\
     Need to be careful when defining set: some definitions are pathological.
@@ -17,9 +16,41 @@ I will go fast as I assume you have already seen this before.
     e.g.: Take $Y = \{x \mid x \not\in x\}$:
     $Y \in Y \iff Y \not\in Y$
 \end{remark}
-\begin{notation}[Usual Sets]
-    $\B$, $\N$, $\Z$, $\Q$, $\R$, $\C$, $\N^*$, $\R^+$...
-\end{notation}
+
+\subparagraph{Types of numbers}
+\begin{definition}[Booleans]
+    The set of boolean numbers $\B$ is $\{0,1\}$ or sometimes denoted $\{False, True\}$.\\
+\end{definition}
+\begin{definition}[Naturals]
+    The set of natural numbers $\N$ is $\{0,1,2,3,\dots\}$.\\
+    N.B.: some countries do not count $0$ as a natural number; but we are in France, so in this course, we will.\\
+    N.B.(bis): If we need the naturals without zero, we will use $\N^*$.
+\end{definition}
+\begin{definition}[Integers]
+    The set of integral numbers $\Z$ is $\{0,1,-1,2,-2,3,-3,\dots\}$.\\
+    N.B.: If we need only the negative part of the integers, we will use $\Z^-$.
+\end{definition}
+\begin{definition}[Rationals or Quotients or Fractions]
+    The set of natural numbers $\Q$ is $\{\nicefrac{a}{b} \mid a \in \Z, b \in \N^*\}$.\\
+\end{definition}
+\begin{definition}[Reals]
+    The set of real numbers $\R$ is the set of "all numbers you can think of": rational + irrationals (e.g.: roots). 
+\end{definition}
+Typical diagram:\\
+\begin{tikzpicture}
+    %ellipses
+    \draw (0,1) ellipse (0.3cm and 0.4cm);
+    \draw (0.3,1) ellipse (0.9cm and 0.5cm);
+    \draw (0.6,1) ellipse (1.5cm and 0.6cm);
+    \draw (0.9,1) ellipse (2.1cm and 0.7cm);
+    %math
+    \draw (0,1) node[anchor=center] {$\N$};
+    \draw (0.7,1) node[anchor=center] {$\Z$};
+    \draw (1.6,1) node[anchor=center] {$\Q$};
+    \draw (2.5,1) node[anchor=center] {$\R$};
+\end{tikzpicture}\\
+Later, we will see complex numbers.
+In computer science, types matter a lot.
 
 \subparagraph{Functions}
 \begin{definition}[Functions]
@@ -31,7 +62,7 @@ I will go fast as I assume you have already seen this before.
 \begin{question}
     Which ones of these function are well-defined ?
     \begin{itemize}
-        \item $f:k\in\{0,1,2,3,4\}\mapsto 24/k\in \N$
+        \item $f:k\in \{0,1,2,3,4\}\mapsto 24/k\in \N$
         \item $f:k\in \{1,2,3,4\}\mapsto 24/k\in \N$
         \item $f:k\in \{1,2,3,4,5\}\mapsto 24/k\in \N$
         \item $f:k\in \{1,2,3,4\}\mapsto k\in \{1,2\}$
@@ -61,18 +92,10 @@ I will go fast as I assume you have already seen this before.
 \begin{definition}[Disjoint Sets]
     $X$ and $Y$ are disjoint if $\forall x \in X, x \not\in Y$ (or if $\forall y \in Y, y \not\in X$).
 \end{definition}
-
 \begin{definition}[Power Set]
     $\Pow{X} = \{ Y \mid Y \subseteq X \}$\\
     e.g.: $\Pow{\{1,2,3\}}=\{ \emptyset, \{1\},\{2\},\{3\}, \{1,2\},\{1,3\},\{2,3\}, \{1,2,3\} \}$
 \end{definition}
-\begin{definition}[Cartesian Product]
-    $X \times Y = \{ (x,y) \mid x \in X, y \in Y \}$\\
-    e.g.: $\{a,b\} \times \{1,2,3\} = \{ (a,1),(a,2),(a,3), (b,1),(b,2),(b,3) \}$\\
-    Extension: $X_1 \times \dots \times X_n = \prod_{k=1}^n X_k$
-\end{definition}
-
-
 
 \subsection{Axioms}
 Here $ \star $ and $ \dagger $ will operations.
