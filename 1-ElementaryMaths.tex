@@ -97,6 +97,35 @@ In computer science, types matter a lot.
     e.g.: $\Pow{\{1,2,3\}}=\{ \emptyset, \{1\},\{2\},\{3\}, \{1,2\},\{1,3\},\{2,3\}, \{1,2,3\} \}$
 \end{definition}
 
+\subparagraph{Scalars vs vectors}
+1D vs 2D:\vspace{0.2cm}\\
+\begin{tikzpicture}
+    \draw[thick,<->] (-3.5,0) -- (5.5,0);
+    \foreach \x in {-3,-2,-1,0,1,2,3,4,5}
+    \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+   \draw (7,0) node[anchor=center] {"1D"};
+\end{tikzpicture}\\
+\begin{tikzpicture}
+    \draw[thick,<->] (-1.5,0) -- (3.5,0);
+    \draw[thick,<->] (0,-1.5) -- (0,3.5);
+    \foreach \x in {-1,1,2,3}
+        \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+    \foreach \y in {-1,1,2,3}
+        \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+    \draw (5,1) node[anchor=center] {"2D"};
+\end{tikzpicture}\\
+To "select" a point in 2D, we need 2 numbers, giving a coordinate.
+In 3D, we would need 3 numbers, in 4D, 4 numbers, etc...
+\begin{definition}[Cartesian Product]
+    $X \times Y = \{ (x,y) \mid x \in X, y \in Y \}$\\
+    e.g.: $\{a,b\} \times \{1,2,3\} = \{ (a,1),(a,2),(a,3), (b,1),(b,2),(b,3) \}$\\
+    e.g.: $\R \times \R = \{ (x,y) \mid x,y \in \R \}$\\
+    Extension: $X_1 \times \dots \times X_n = \prod_{k=1}^n X_k$
+\end{definition}
+Moving from one point to another gives a "translation".
+Again, we need ad many numbers as there are dimensions.
+Typically, we denote points horizontally, and vectors vertically.
+
 \subsection{Axioms}
 Here $ \star $ and $ \dagger $ will operations.
 \begin{definition}[Associativity]
