@@ -38,11 +38,45 @@
     \end{itemize}
 \end{question}
 
+\subparagraph{Quantifiers}
+\begin{notation}[$\forall$]
+    For all elements in set, e.g.: $\forall x \in \R, x^2 \geq 0$.
+\end{notation}
+\begin{notation}[$\exists$]
+    There exists an element in set, e.g.: $\exists x \in \R \text{ s.t. } x^2 > 1$.
+\end{notation}
+\begin{notation}[$\exists !$]
+    There exists a unique element in set, e.g.: $\exists ! x \in \R \text{ s.t. } x^2 \leq 0$.
+\end{notation}
+\begin{question}
+    \begin{itemize}
+        \item Express "all natural numbers are positive" with quantifiers
+        \item Express $\forall x \geq 0, \ \sqrt{x} \geq 0$ in a sentence
+    \end{itemize}
+\end{question}
+\begin{definition}[Subset / Inclusion]
+    $X \subseteq Y$ if $\forall x \in X, x \in Y$
+\end{definition}
+\begin{definition}[Disjoint Sets]
+    $X$ and $Y$ are disjoint if $\forall x \in X, x \not\in Y$ (or if $\forall y \in Y, y \not\in X$).
+\end{definition}
+
+\begin{definition}[Power Set]
+    $\Pow{X} = \{ Y \mid Y \subseteq X \}$\\
+    e.g.: $\Pow{\{1,2,3\}}=\{ \emptyset, \{1\},\{2\},\{3\}, \{1,2\},\{1,3\},\{2,3\}, \{1,2,3\} \}$
+\end{definition}
+\begin{definition}[Cartesian Product]
+    $X \times Y = \{ (x,y) \mid x \in X, y \in Y \}$\\
+    e.g.: $\{a,b\} \times \{1,2,3\} = \{ (a,1),(a,2),(a,3), (b,1),(b,2),(b,3) \}$\\
+    Extension: $X_1 \times \dots \times X_n = \prod_{k=1}^n X_k$
+\end{definition}
+
+
+
 
 
 
 \subsection{Objects \& Notations}
-
 - $\N$, $\Z$, $\Q$, $\R$
 - scalars vs vectors
 - logic \& booleans
