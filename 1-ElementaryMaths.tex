@@ -1,13 +1,13 @@
 \section{Elementary Maths}
 Should be fairly easy, this section is just so that everyone is one the same page and use the same notation for the rest of the course.
 I will go fast as I assume you have already seen this before.
-\subsection{Mathematical Objects \& Notations}
+\subsection{Mathematical objects}
 \subparagraph{Sets}
 \begin{definition}[Sets]
     Unordered list of elements.
 \end{definition}
 \begin{notation}[Sets]
-    $a \in A$, $\{ a, b, c \dots \}$, $\{ e \mid condition \}$, $\emptyset$
+    $a \in A$, $\{ a, b, c \dots \}$, $\{ e \mid condition \}$
 \end{notation}
 \begin{remark}[Russell Paradox]
     \textit{(digression)}\\
@@ -17,7 +17,15 @@ I will go fast as I assume you have already seen this before.
     $Y \in Y \iff Y \not\in Y$
 \end{remark}
 
-\subparagraph{Types of numbers}
+\begin{definition}[Empty Set]
+    $\emptyset = \{ \}$
+\end{definition}
+\begin{definition}[Power Set]
+    $\Pow{X} = \{ Y \mid Y \subseteq X \}$\\
+    e.g.: $\Pow{\{1,2,3\}}=\{ \emptyset, \{1\},\{2\},\{3\}, \{1,2\},\{1,3\},\{2,3\}, \{1,2,3\} \}$
+\end{definition}
+
+\subparagraph{Numbers}
 \begin{definition}[Booleans]
     The set of boolean numbers $\B$ is $\{0,1\}$ or sometimes denoted $\{False, True\}$.\\
 \end{definition}
@@ -84,20 +92,28 @@ In computer science, types matter a lot.
     \begin{itemize}
         \item Express "all natural numbers are positive" with quantifiers
         \item Express $\forall x \geq 0, \ \sqrt{x} \geq 0$ in a sentence
+        \item Express set inclusion (e.g. $A \subseteq B$) with quantifiers
+        \item Express $\forall x \in X, x \not\in Y$ in a sentence
     \end{itemize}
 \end{question}
-\begin{definition}[Subset / Inclusion]
-    $X \subseteq Y$ if $\forall x \in X, x \in Y$
-\end{definition}
-\begin{definition}[Disjoint Sets]
-    $X$ and $Y$ are disjoint if $\forall x \in X, x \not\in Y$ (or if $\forall y \in Y, y \not\in X$).
-\end{definition}
-\begin{definition}[Power Set]
-    $\Pow{X} = \{ Y \mid Y \subseteq X \}$\\
-    e.g.: $\Pow{\{1,2,3\}}=\{ \emptyset, \{1\},\{2\},\{3\}, \{1,2\},\{1,3\},\{2,3\}, \{1,2,3\} \}$
-\end{definition}
+\begin{property}[Negation of $\forall$]
+    $\lnot \forall x\in X, P(x) = \exists x\in X, \lnot P(x)$
+\end{property}
+\begin{property}[Negation of $\exists$]
+    $\lnot \exists x\in X, P(x) = \forall x\in X, \lnot P(x)$
+\end{property}
+\begin{notation}[Quantifiers and the empty set]
+    $\forall x \in \emptyset, \ \dots$ is true ;
+    $\exists x \in \emptyset, \ \dots$ is false
+\end{notation}
+\begin{question} Negate the following
+    \begin{itemize}
+        \item $\forall x \in \R, \ \exists n \in \N \text{ s.t. } n > x$
+        \item ($x_n \to x$): $\forall \epsilon>0, \exists N \in \N \text{ s.t. } \forall n>N, \abs{x_n-x}<\epsilon$
+    \end{itemize}
+\end{question}
 
-\subparagraph{Scalars vs vectors}
+\subparagraph{Vectors}
 1D vs 2D:\vspace{0.2cm}\\
 \begin{tikzpicture}
     \draw[thick,<->] (-3.5,0) -- (5.5,0);
@@ -164,33 +180,37 @@ Here $ \star $ and $ \dagger $ will operations.
 
 \subsection{Boolean algebra}
 \textit{The reason we'll do some is because of it's application to programming, in particular to conditions ('if' blocks and 'while' loops).}
-\subparagraph{Basic operators}
+\subparagraph{Boolean operators}
 \begin{definition}[Conjunction]
     $x \land y = xy$
 \end{definition}
-\begin{definition}[Intersection]
-    $X \cap Y = \{ z \mid (z \in X) \land (z \in Y) \}$
-\end{definition}
-\begin{remark}[Disjoint Sets and Intersection]
-    Disjoint sets have empty intersection.
-\end{remark}
 \begin{definition}[Disjunction]
     $x \lor y = \min(x+y,1)$
-\end{definition}
-\begin{definition}[Union]
-    $X \cup Y = \{ z \mid (z \in X) \lor (z \in Y) \}$
 \end{definition}
 \begin{definition}[Negation]
     $\lnot: 0,1 \mapsto 1,0$
 \end{definition}
-\begin{definition}[Set minus / Complement]
-    $X \setminus Y = \{ x \in X \mid \lnot (x \in Y) \}$
+\begin{definition}[Exclusive Or]
+    $x \oplus y = x+y-2xy$
 \end{definition}
-[Draw diagrams]
+\begin{definition}[Implication]
+    $x \implies y$
+\end{definition}
+\begin{definition}[If and only if]
+    $x \iff y$
+\end{definition}
 \begin{question}
-    Selecting points outside a given region.
+    Express in terms of and, or, not:
+    \begin{itemize}
+        \item $\oplus$
+        \item $\implies$
+        \item $\impliedby$
+        \item $\iff$
+    \end{itemize}
+    Write 1st and 2nd digit of addition of 3 binary numbers $a$, $b$, $c$.
 \end{question}
-\subparagraph{Basic properties}
+
+\subparagraph{Boolean properties}
 \begin{property}[Boolean algebra matching ordinary algebra]
     Same laws as ordinary algebra when one matches up $\lor$ with addition and $\land$ with multiplication.
     \begin{itemize}
@@ -224,49 +244,28 @@ Here $ \star $ and $ \dagger $ will operations.
     Truth-tables; prove De Morgan, others as exercise (or just believe me)
 \end{proof}
 
-\subparagraph{Other operators}
-\begin{definition}[Exclusive Or]
-    $x \oplus y$
+\subparagraph{Relation with set theory}
+\begin{definition}[Intersection]
+    $X \cap Y = \{ z \mid (z \in X) \land (z \in Y) \}$
 \end{definition}
-\begin{definition}[Implication]
-    $x \implies y$
+\begin{remark}[Disjoint Sets and Intersection]
+    Disjoint sets have empty intersection.
+\end{remark}
+\begin{definition}[Union]
+    $X \cup Y = \{ z \mid (z \in X) \lor (z \in Y) \}$
 \end{definition}
 \begin{property}[Implication and Inclusion]
     If $\forall x \in X, P_1(x) \implies P_2(x)$, then $\{ x \in X \mid P_1(x) \} \subset \{ x \in X \mid P_2(x) \}$.
 \end{property}
-\begin{proof}
-    Trivial.
-\end{proof}
-\begin{definition}[If and only if]
-    $x \iff y$
+\begin{property}[Equivalence and Equality]
+    If $\forall x \in X, P_1(x) \iff P_2(x)$, then $\{ x \in X \mid P_1(x) \} = \{ x \in X \mid P_2(x) \}$.
+\end{property}
+\begin{definition}[Set minus / Complement]
+    $X \setminus Y = \{ x \in X \mid \lnot (x \in Y) \}$
 \end{definition}
+[Draw diagrams]
 \begin{question}
-    Express in terms of and, or, not:
-    \begin{itemize}
-        \item $\oplus$
-        \item $\implies$
-        \item $\impliedby$
-        \item $\iff$
-    \end{itemize}
-    Write 1st and 2nd digit of addition of 3 binary numbers $a$, $b$, $c$.
-\end{question}
-
-\subparagraph{Negation of quantified propositions}
-\begin{property}[Negation of $\forall$]
-    $\lnot \forall x\in X, P(x) = \exists x\in X, \lnot P(x)$
-\end{property}
-\begin{property}[Negation of $\exists$]
-    $\lnot \exists x\in X, P(x) = \forall x\in X, \lnot P(x)$
-\end{property}
-\begin{notation}[Quantifiers and the empty set]
-    $\forall x \in \emptyset, \ \dots$ is true ;
-    $\exists x \in \emptyset, \ \dots$ is false
-\end{notation}
-\begin{question} Negate the following
-    \begin{itemize}
-        \item $\forall x \in \R, \ \exists n \in \N \text{ s.t. } n > x$
-        \item ($x_n \to x$): $\forall \epsilon>0, \exists N \in \N \text{ s.t. } \forall n>N, \abs{x_n-x}<\epsilon$
-    \end{itemize}
+    Selecting points outside a given region.
 \end{question}
 
 
@@ -435,7 +434,7 @@ This is what the vector product was designed for.
 
 
 
-\subsection{Elementary analysis}
+\subsection{Early analysis}
 \begin{definition}[Minimum/Maximum]
     With $A$ a set: $a^* \in A$ is the minimum (respectively maximum) of $A$ if $\forall a \in A, a \geq a^*$ (respectively $\forall a \in A, a \leq a^*$).
 \end{definition}
