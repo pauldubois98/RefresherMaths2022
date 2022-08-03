@@ -330,8 +330,28 @@ Then, that $P(n) \implies P(n+1)$.
     \end{align*}
 \end{proof}
 Be careful, BOTH initialization \& induction are important.
+\paragraph{Existence}
+We usually show existence of an object by constructing it.
+\begin{property}[Existence of Euclidean division]
+    $\forall a \in \Z, b \in \N^*, \exists \ q \in \Z, r \in \left[ 0, b \right[ \cap \N \text{ s.t. } a=bq+r$
+\end{property}
+\begin{proof}
+    Let $q = \max\{ k \in \N \mid bk \leq a \}$, and $r = a-bq$.
+    One can then check that the conditions are met.
+\end{proof}
+\paragraph{Uniqueness}
+To show uniqueness of an object, we usually suppose there are two, and show that they must be the same, enforcing the fact that it must be unique.
+\begin{property}[Uniqueness of Euclidean division]
+    $\forall a \in \Z, b \in \N^*, \exists ! \ q \in \Z, r \in \left[ 0, b \right[ \cap \N \text{ s.t. } a=bq+r$
+\end{property}
+\begin{proof}
+    Suppose $a=bq_1+r_1$ and $a=bq_2+r_2$.
+    Then $bq_1+r_1=bq_2+r_2$, so $b(q_1-q_2)=r_2-r_1$.
+    Now, $r_2-r_1 \in \left] -b,b \right[$ and $b(q_1-q_2) \in b*\Z$, so the only possibility is that they are both $0$.
+    So $r_1=r_2$ and $q_1=q_2$.
+\end{proof}
 
-A misleading "proof":
+A \textbf{\underline{misleading}} "proof":
 \begin{property}[FALSE PROPERTY]
     Horses are all the same colour.
 \end{property}
@@ -347,7 +367,6 @@ A misleading "proof":
     By induction, $H_1$ and $H_2$ must be uni-colour.
     $h_n$ belongs to both sets, so the colour of horses in both sets mus be the same, and $H$ is uni-colour.
 \end{proof}
-
 \begin{question}
     \begin{itemize}
         \item Show that $12n-6$ is divisible by 6 for every positive integer $n$ (you do not need induction for this one).
