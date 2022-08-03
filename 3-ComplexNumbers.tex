@@ -1,2 +1,116 @@
 \section{Complex numbers}
-argand diagram
+
+\subsection{Introduction}
+Observation: $x^2+1=0$ has no solution in $\R$; want to extend $\R$ so that there is a solution.
+\begin{definition}[The Complex Unit]
+    Let $i=\sqrt{-1}$ so that $i^2=-1$ and $i,-i$ are two solutions of $x^2+1=0$.
+\end{definition}
+\begin{definition}[The Complex Field]
+    $\C = \{ x+iy \mid x,y \in \R \}$
+\end{definition}
+[draw complex plane, show $\C$ is in bijection with $\R^2$]
+
+\begin{proposition}[Complex have all roots of all quadratics]
+    $ax^2+bx+c=0 \implies x=\frac{-b \pm \sqrt{\Delta}}{2a}$
+\end{proposition}
+\begin{proof}
+    case $\Delta<0$
+\end{proof}
+
+Operations on complex numbers: show addition, multiplication, division
+
+\begin{definition}[Conjugate]
+    If $z=x+iy$, then conjugate of $z$ is $\overline{z}=x-iy$.
+\end{definition}
+\begin{property}[Properties of Conjugate]
+    \begin{itemize}
+        \item $\overline{zz'}=\overline{z}\overline{z'}$
+        \item $\overline{z+z'}=\overline{z}+\overline{z'}$
+        \item $\overline{z^k}=\overline{z}^k$
+    \end{itemize}
+\end{property}
+\begin{proof}
+    use $z=x+iy$, $z'=x'+iy'$
+\end{proof}
+
+\begin{definition}[Modulus]
+    If $z=x+iy$, then modulus of $z$ is $\abs{z}=\sqrt{z\overline{z}}=\sqrt{x^2+y^2}$.
+\end{definition}
+\begin{property}[Properties of Modulus]
+    \begin{itemize}
+        \item Modulus is a metric on $\C$
+        \item $\abs{zz'}=\abs{z}\abs{z'}$
+    \end{itemize}
+\end{property}
+\begin{proof}
+    \begin{itemize}
+        \item show triangle inequality (others are trivial)
+        \item use $z=x+iy$, $z'=x'+iy'$
+    \end{itemize}
+\end{proof}
+
+
+
+\subsection{Complex Exponential}
+$\sum_{n \in \N}z_n$ converges if $\sum_{n \in \N}\abs{z_n}$, so $\sum_{n \in \N}\frac{z^k}{k!}$ converges uniformly; we can therefore extend exponential to complex.
+
+Note that algebra of exponential remains over the complex, and $\overline{e^z}=e^{\overline{z}}$.
+
+\subsubsection{Geometry}
+[Draw argand diagram: x, y; modulus, argument, conjugate]
+
+Polar coordinates <=> Cartesian coordinates
+
+Transformations in the complex plane: translation, scaling, rotation
+
+\subsubsection{Link with trigonometry}
+\begin{property}
+    $\abs{\exp(i\theta)} = 1$
+\end{property}
+\begin{proof}
+    $\abs{\exp(i\theta)}^2 = \exp(i\theta)\exp(-i\theta) = \exp(0) = 1$
+\end{proof}
+Unit circle: coordinates are given by $\cos$ and $\sin$\\
+By proving $\theta \mapsto \exp(i\theta)$ is surjective, can show that $\exp(i\pi/2)=i$.\\
+Have:
+\begin{itemize}
+    \item $\cos(\theta) = \Re(\exp(i\theta))$
+    \item $\sin(\theta) = \Im(\exp(i\theta))$
+\end{itemize}
+This gives periodicity of $2\pi$, etc...
+
+\subsection{Complex Polynomials}
+\begin{lemma}[Existence of the Minimum of a Polynomial]
+    $P(z) \in \C\left[ x \right]: \exists z_0 \in \C \text{ s.t. } P(z_0) = \inf\{ P(z) \mid z \in \C \}$
+\end{lemma}
+\begin{proof}
+    Show $\abs{P(z)} \to +\infty \text{ as } \abs{z} \to +\infty$.
+    Then $X = \{ z \in \C \mid \abs{P(z)} \leq \inf\{ \abs{P(z)} \mid z \in \C \}+1 \}$ is compact (close \& bounded).
+    By definition of infimum, there is a sequence $(z_n) \subseteq X$ such that $(P(z_n)) \to \inf\{ \abs{P(z)} \mid z \in \C \}$.
+    But then there is a sub-sequence $z_{n_k} \to z \in X$.
+\end{proof}
+
+\begin{theorem}[of d'Alembert]
+    $P(z) \in \C\left[ x \right]: \degree{P} \geq 1 \implies \exists z \in \C \text{ s.t. } P(z)=0$
+\end{theorem}
+\begin{proof}
+    Suppose $\min\{ \abs{P(z)} \mid z \in \C \}>0$ is reached at $z_0$.
+    We can define the polynomial $Q:z\in \C \mapsto \frac{P(z_0+z)}{P(z_0)}$ which is such that $Q(0) = \min\{|Q(z)|,z\in \C\} = 1 $.
+    Let $(b_0,...,b_p)$ be the coefficients of $Q$ and $q = \min\{ j \in \llbracket 1;p \rrbracket | b_j\neq 0\}$.
+    With these notations, $\forall z\in \C,~Q(z) = 1+b_qz^q + \displaystyle \sum_{k = q+1}^pb_kz^k$.\\
+    Let $\theta = \mathrm{Arg}(b_q)$ and $\varphi = \frac{\pi-\theta}{q}$.
+    Then $b_qe^{iq\varphi} =-|b_q|$.
+    So:
+    $$\forall r >0, Q(re^{i\varphi}) = 1-|b_q|r^q + \sum_{k = q+1}^p b_k r^k e^{ik\varphi}$$
+    $$|Q(re^{i\varphi})| \leq |1-|b_q|r^q| + \sum_{k=q+1}^p |b_k|r^k$$
+    $$\forall r \in ]0;|b_q|^{1/q}[,~ |Q(re^{i\varphi})|\leq 1-|b_q|r^q+ \sum_{k=q+1}^p |b_k|r^k$$
+    $$|Q(re^{i\varphi})|-1\leq -|b_q|r^q+ \sum_{k=q+1}^p |b_k|r^k$$
+    $$\lim_{r\rightarrow 0}\frac{-|b_q| r^q+\sum_{k = q+1}^p|b_k|r^k}{r^q} = -|b_q| <0$$
+    
+    So there exists $r_1$ such that $0 <r_1<|b_q|^{-1/q}$ such that $\forall r< r_1,~\displaystyle \frac{-|b_q| r^q+\sum_{k = q+1}^p|b_k|r^k}{r^q} <0$, so $|Q(re^{i\varphi})|<1$, which is a contradiction.
+\end{proof}
+
+\begin{corollary}
+    Let $P\in \C[X]$ such that $\deg(P) \geq 1$. Let $z_1,...,z_m$ be the roots of $P$ of multiplicities $\alpha_1,...,\alpha_m$. Then we have that $\alpha_1+...+\alpha_m = \deg(P)$ and there exists $\lambda\in \C^*$ such that
+    $$\forall z\in \C,~P(z) = \lambda \prod_{k = 1}^m(z-z_k)^{\alpha_k}$$
+\end{corollary}
