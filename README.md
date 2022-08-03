@@ -5,9 +5,9 @@ Sources for the refresher maths course taught at the ESSEC buisness school septe
 TODO:
 [x] Summary
 [x] Intro
-[ ] Elementary maths
+[x] Elementary maths
+[x] Sizes of infinity
 [ ] Complex numbers
-[ ] Sizes of infinity
 [ ] Asymptotic analysis (limits)
 [ ] Infinite & partial sums
 [ ] Functions & Inverses
