@@ -366,6 +366,7 @@ This is high-school material, so we will just warm it up with a few exercises:
     With $\vec{u}$ a vectors in $N$ dimension:
     $$\norm{\vec{u}} = \sqrt{\sum_{k=1}^{N} u_k^2}$$
 \end{definition}
+NB: The distance from $A$ to $B$ is $\norm{\vec{AB}}$.
 \begin{definition}[Dot Product]
     With $\vec{u}$ and $\vec{v}$ vectors:
     $$\vec{u} \cdot \vec{v} = \sum_{k=1}^{N} u_kv_k = \norm{\vec{u}}\norm{\vec{v}}\cos(\text{angle}(\vec{u},\vec{v}))$$
@@ -385,7 +386,6 @@ This is what the vector product was designed for.
         &= u_2v_3\vec{i} + u_3v_1\vec{j} + u_1v_2\vec{k} - v_1u_2\vec{k} - v_2u_3\vec{i} - v_3u_1\vec{j} \\
         &= \begin{bmatrix} u_2v_3-u_3v_2 \\ u_3v_1-u_1v_3 \\ u_1v_2-u_2v_1 \end{bmatrix}
     \end{align*}
-
 \end{definition}
 
 \begin{question} Find an equation of the following lines in the $xy$-plane:
@@ -395,6 +395,7 @@ This is what the vector product was designed for.
         \item crossing the points $(2,3)$ and $(-3,-7)$
         \item crossing the point $(5,1)$ with slope $-2$
         \item crossing the point $(5,1)$ perpendicular to the last one
+        \item the mediator of $(3,1)$ and $(-9,8)$
     \end{itemize}
 \end{question}
 \begin{question} Find an equation of the following planes in the $xyz$-space:
@@ -402,6 +403,7 @@ This is what the vector product was designed for.
         \item horizontal, crossing the $z$-axis at -8
         \item crossing the point $(5,1-3)$ with normal vector $(-2,6,-9)$
         \item crossing the points $(2,3,1)$, $(-10,4,-5)$, and $(-3,-7,-1)$
+        \item the mediator plane of $(3,1,5)$ and $(-9,8,-3)$
     \end{itemize}
 \end{question}
 \begin{question} Describe (give the associated set of points) the following lines in the $xyz$-space:
@@ -414,8 +416,31 @@ This is what the vector product was designed for.
 
 
 
-\subsection{Sets}
-- min/max \& sup/inf => start using for all / there exists
+\subsection{Sets extremums}
+\begin{definition}[Minimum/Maximum]
+    With $A$ a set: $a^* \in A$ is the minimum (respectively maximum) of $A$ if $\forall a \in A, a \geq a^*$ (respectively $\forall a \in A, a \leq a^*$).
+\end{definition}
+\begin{definition}[Lower/Upper bound]
+    With $A$ a set: $b$ is a lower (respectively upper) bound of $A$ if $\forall a \in A, a \geq b$ (respectively $\forall a \in A, a \leq b$).
+\end{definition}
+\begin{definition}[Infimum/Supremum]
+    With $A$ a set: $a^*$ is the infimum (respectively supremum) of $A$ if $a^*$ is the largest lower bound (respectively the smallest upper bound).
+    
+    With quantifiers:\\
+    $a^*$ is the infimum of $A$ if $\forall \varepsilon>0, \exists a \in A \text{ s.t. } a < a^* + \varepsilon$ (and $\forall a \in A, a \geq a^*$).\\
+    $a^*$ is the supremum of $A$ if $\forall \varepsilon>0, \exists a \in A \text{ s.t. } a > a^* - \varepsilon$ (and $\forall a \in A, a \leq a^*$).
+\end{definition}
+Infimum/supremum always exist, while minimum/maximum may not.
+\begin{question} Find the minimum, maximum, infimum, supremum of the following sets:
+    \begin{itemize}
+        \item $\left[0,1\right]$
+        \item $\left(0,1\right)$
+        \item $\{ \nicefrac{1}{n} \mid n \in \N^* \}$
+    \end{itemize}
+\end{question}
+
+
+
 \subsection{Integers}
 - prime numbers (infinite nb by Euclide)
 - unique factorization 
