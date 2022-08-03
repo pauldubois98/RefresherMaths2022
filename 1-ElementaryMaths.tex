@@ -323,13 +323,11 @@ Then, that $P(n) \implies P(n+1)$.
     so clearly $$\sum_{k=0}^{n} k = \frac{n(n+1)}{2} \text{ for } n=0$$
     
     \textbf{Induction:} suppose $\sum_{k=0}^{n} k = \frac{n(n+1)}{2}$, we need $\sum_{k=0}^{n+1} k = \frac{(n+1)(n+2)}{2}$\\
-    \begin{equation*}
-        \begin{split}
+    \begin{align*}
             \sum_{k=0}^{n+1} k &= (n+1) + \sum_{k=0}^{n} k\\
                                &= (n+1) + \frac{n(n+1)}{2}\\
                                &= \frac{(n+2)(n+1)}{2}
-        \end{split}
-    \end{equation*}
+    \end{align*}
 \end{proof}
 Be careful, BOTH initialization \& induction are important.
 
@@ -364,6 +362,32 @@ A misleading "proof":
 
 \subsection{Basic geometry}
 This is high-school material, so we will just warm it up with a few exercises:
+\begin{definition}[Norm]
+    With $\vec{u}$ a vectors in $N$ dimension:
+    $$\norm{\vec{u}} = \sqrt{\sum_{k=1}^{N} u_k^2}$$
+\end{definition}
+\begin{definition}[Dot Product]
+    With $\vec{u}$ and $\vec{v}$ vectors:
+    $$\vec{u} \cdot \vec{v} = \sum_{k=1}^{N} u_kv_k = \norm{\vec{u}}\norm{\vec{v}}\cos(\text{angle}(\vec{u},\vec{v}))$$
+\end{definition}
+In particular, if $\vec{u} \perp \vec{v}$, then $\vec{u} \cdot \vec{v} = 0$.\\
+Dot product takes two vectors, and gives a scalar.
+It may be interesting to, similarly to scalars multiplication, have the same type of object as output of the operation.
+This is what the vector product was designed for.
+\begin{definition}[Vector Product]
+    With $\vec{u}$ and $\vec{v}$ vectors in $3$ dimensions:
+    $$\vec{u} \times \vec{v} = \vec{w}$$
+    $$\text{with } \norm{\vec{w}} = \norm{\vec{u}}\norm{\vec{v}}\sin(\text{angle}(\vec{u},\vec{v}))$$
+    $$\text{and } \vec{u},\vec{v} \perp \vec{w} \text{; direction given by the right-hand-rule}$$
+    Now, if $\vec{u} = \begin{bmatrix} u_1 \\ u_2 \\ u_3 \end{bmatrix}$ and $v = \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix}$, then:
+    \begin{align*}
+        w &= \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \end{vmatrix} \\
+        &= u_2v_3\vec{i} + u_3v_1\vec{j} + u_1v_2\vec{k} - v_1u_2\vec{k} - v_2u_3\vec{i} - v_3u_1\vec{j} \\
+        &= \begin{bmatrix} u_2v_3-u_3v_2 \\ u_3v_1-u_1v_3 \\ u_1v_2-u_2v_1 \end{bmatrix}
+    \end{align*}
+
+\end{definition}
+
 \begin{question} Find an equation of the following lines in the $xy$-plane:
     \begin{itemize}
         \item vertical, crossing the $x$-axis at 5
