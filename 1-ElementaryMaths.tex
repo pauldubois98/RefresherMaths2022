@@ -416,7 +416,7 @@ This is what the vector product was designed for.
 
 
 
-\subsection{Sets extremums}
+\subsection{Elementary analysis}
 \begin{definition}[Minimum/Maximum]
     With $A$ a set: $a^* \in A$ is the minimum (respectively maximum) of $A$ if $\forall a \in A, a \geq a^*$ (respectively $\forall a \in A, a \leq a^*$).
 \end{definition}
@@ -441,7 +441,26 @@ Infimum/supremum always exist, while minimum/maximum may not.
 
 
 
-\subsection{Integers}
-- prime numbers (infinite nb by Euclide)
-- unique factorization 
-- finding primes between 1 and 100 => time complexity of algo?
+\subsection{Essence of number theory}
+\begin{definition}[Prime]
+    $p \in \N$ is a prime number if it is only divisible by $1$ and itself ($p$)\\
+    The set of prime numbers is usually denotes $\primes$.
+\end{definition}
+\begin{property}
+    Every natural number (greater than $2$) can be decomposed into a product of prime powers, i.e.:
+    $\forall n \in \N, n \geq 2, \exists p_1, \dots, p_N, \alpha_1, \dots, \alpha_N \text{ s.t. } n = \prod_{k=1}^{N} p_k^{\alpha_k}$.
+\end{property}
+\begin{property}[$\card{\primes}=\infty$]
+    There are infinitely many primes.
+\end{property}
+\begin{proof}
+    Suppose $\primes = \{ p_1, \dots, p_n \}$.
+    Let $N = 1 + \prod_{k=1}^{n} p_k$; then $N$ is not divisible by any prime from $\primes$, but it must have a prime factorisation.
+    Thus, there must exist a prime that isn't included in $\primes$.
+    This is a contradiction.
+\end{proof}
+\begin{question}
+    How to check if a number is prime or not? (write pseudo code algorithm)
+    
+    Find all primes in $\left[0,50\right]$ (and write pseudo code algorithm to find all the primes in $\left[0,500\right]$).
+\end{question}
