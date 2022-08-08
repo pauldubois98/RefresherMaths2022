@@ -1,4 +1,44 @@
-\section{Asymptotic analysis (limits)}
+\section{Asymptotic Analysis}
+
+\subsection{Sequences}
+\begin{definition}[Sequence]
+	$(x_n)_{n\in \N}$ is a sequence if $x_n$ is defined for all $n \in \N$\\
+    NB: Here, we start the sequence at $0$, but this is arbitrary.
+\end{definition}
+There are two ways to define a sequence: with the general and recursive form.
+
+\paragraph{General form}
+The general form of a sequence $x_n$ is $x_n = f(n)$, with $f(n)$ an expression (e.g. $x_n = 2n+5$).
+\paragraph{Recursive form}
+The recursive form of a sequence $x_n$ is given by a recursive formula $x_{n+1} = f(x_n)$ and an initialization term $x_0 = a$.
+
+\begin{question}
+    Find the general form of the following:
+    \begin{itemize}
+        \item $x_{n+1} = x_n+5$, $x_0=3$
+        \item $x_{n+1} = x_n*2$, $x_0=1$
+    \end{itemize}
+\end{question}
+\begin{question}
+    Find the recursive form of the following:
+    \begin{itemize}
+        \item $x_n = -2n+1$
+        \item $x_n = 10^{n+2}$
+    \end{itemize}
+\end{question}
+
+
+
+\subsection{Limit}
+\begin{definition}[$(x_n) \subseteq \R$ converges to $x \in \R$]
+    $\,\forall \varepsilon > 0, \ \exists N \text{ s.t. } \forall n \geq N, \ \abs{x_n-x} < \varepsilon$
+\end{definition}
+\begin{definition}[$(x_n) \subseteq \R$ diverges to $+\infty$]
+    $\,\forall M \in \R, \ \exists N \text{ s.t. } \forall n \geq N, \ x_n > M$
+\end{definition}
+We write $x_n \xrightarrow[n \to \infty]{} +\infty \text{ or } \lim\limits_{n \to +\infty} x_n = +\infty$.
+Note that divergence is only defined over $\R$; divergence to $-\infty$ is defined similarly.
+
 - def of sequence: recursive and general form
 - usual sequences (arithmetic/geometric)
 - convergence of sequences
