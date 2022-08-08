@@ -7,8 +7,8 @@ TODO:
 [x] Intro
 [x] Elementary maths
 [x] Sizes of infinity
+[ ] Asymptotic analysis
 [ ] Complex numbers
-[ ] Asymptotic analysis (limits)
 [ ] Infinite & partial sums
 [ ] Functions & Inverses
 [ ] Usual functions
