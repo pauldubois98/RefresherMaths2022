@@ -30,15 +30,38 @@ The recursive form of a sequence $x_n$ is given by a recursive formula $x_{n+1} 
 
 
 \subsection{Limit}
-\begin{definition}[$(x_n) \subseteq \R$ converges to $x \in \R$]
-    $\,\forall \varepsilon > 0, \ \exists N \text{ s.t. } \forall n \geq N, \ \abs{x_n-x} < \varepsilon$
+\begin{definition}[$(x_n) \subseteq \R$ converges to $l \in \R$]
+    $\,\forall \varepsilon > 0, \ \exists N \text{ s.t. } \forall n \geq N, \ \abs{x_n-l} < \varepsilon$
 \end{definition}
+We write $x_n \xrightarrow[n \to \infty]{} l \text{ or } \lim\limits_{n \to +\infty} x_n = l$.
+
 \begin{definition}[$(x_n) \subseteq \R$ diverges to $+\infty$]
     $\,\forall M \in \R, \ \exists N \text{ s.t. } \forall n \geq N, \ x_n > M$
 \end{definition}
 We write $x_n \xrightarrow[n \to \infty]{} +\infty \text{ or } \lim\limits_{n \to +\infty} x_n = +\infty$.
 Note that divergence is only defined over $\R$; divergence to $-\infty$ is defined similarly.
 
-- def of sequence: recursive and general form
+Note: These definitions are \textbf{\textit{very}} important, you should be able to recall them anytime, even if waken up in the middle of the night.
+
+\begin{question}
+    Find the limits of the following sequences (as $n \to +\infty$):
+    \begin{itemize}
+        \item $x_n = \nicefrac{1}{n}$
+        \item $x_n = \nicefrac{1}{2^n}$
+        \item $x_n = n^3$
+    \end{itemize}
+\end{question}
+\begin{question}
+    Give the definition of $\lim\limits_{n \to +\infty} x_n = -\infty$
+\end{question}
+\begin{question}
+    Find the limits of the following sequences (as $n \to +\infty$):
+    \begin{itemize}
+        \item $x_n = (-1)^n$
+        \item $x_n = 5$
+        \item $x_n = -3^n$
+    \end{itemize}
+\end{question}
+
+
 - usual sequences (arithmetic/geometric)
-- convergence of sequences
